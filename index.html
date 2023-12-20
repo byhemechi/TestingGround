@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html noscroll>
+  <head>
+    <style>
+      @keyframes pulse {
+        from {
+          font-size: 0%;
+        }
+        to {
+          font-size: 100%;
+        }
+      }
+
+      .pulse {
+        animation: pulse 0.5s ease;
+      }
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8);*/
+        -webkit-border-radius: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: #666;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+      }
+      body {
+        padding: 13px;
+        margin: 0;
+        height: 100%;
+        box-sizing: border-box;
+        padding-bottom: 0px;
+        font-family: Sans-Serif;
+        border-radius: 1em;
+      }
+      #editor {
+        resize: none;
+        border: none;
+        height: 100%;
+      }
+      #divecho {
+        height: 100%;
+      }
+      #wrapper {
+        height: calc(100% - 1em - 20px - 26px);
+        border-right: solid 2px gray;
+        font-family: auto;
+      }
+      html {
+        height: 100%;
+        padding: 0px;
+        border: none;
+        border-bottom: none;
+      }
+      #top {
+        background: gray;
+        color: white;
+        padding: 10px;
+        border-top-right-radius: 0.5em;
+        border-bottom-left-radius: 0.5em;
+        border-top-left-radius: 0.5em;
+      }
+      noscript {
+        background: red;
+        padding: 4px;
+      }
+    </style>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("editor").value;
+        document.getElementById("divecho").innerHTML = x;
+      }
+    </script>
+  </head>
+  <body>
+    <header id="top">
+      <b
+        ><span class="pulse"
+          >TestingGround
+          <button type="button" onclick="myFunction()">
+            &#9658; <b>Run/Reset Code</b>
+          </button></span
+        ><noscript
+          >Sorry mate,but this won't work. You need Javascript enabled to use
+          TestingGround.</noscript
+        ></b
+      >
+    </header>
+    <div id="wrapper">
+      <textarea
+        id="editor"
+        style="width: 49%; float: left; border-right: solid 1px gainsboro"
+        placeholder="Enter code here"
+        oninput="myFunction()"
+      ></textarea>
+      <div
+        id="divecho"
+        style="width: 50%; float: right; float: top; max-height: 100%"
+      >
+        <span style="color: gainsboro; font-family: Sans-Serif"
+          >Code you enter will be displayed here</span
+        >
+      </div>
+    </div>
+  </body>
+</html>
