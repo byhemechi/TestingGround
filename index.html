@@ -74,13 +74,16 @@
         padding: 4px;
       }
     </style>
-    <script type="module">
-      import { loadReadme } from "/load_readme.js";
+    <script>
       function myFunction() {
         var x = document.getElementById("editor").value;
         document.getElementById("divecho").innerHTML = x;
       }
+    </script>
 
+    <script type="module">
+      import { loadReadme } from "/load_readme.js";
+      document.getElementById("editor").value = "Loading README...";
       loadReadme().then((body) => {
         document.getElementById("editor").value = body;
         myFunction();

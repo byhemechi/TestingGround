@@ -1,4 +1,4 @@
-This is probably the first "web app" I ever made, on school computers in year 5.
+This is probably the first "web app" I ever made, on school computers, in year 5.
 
 It sat on my networked user drive for about a year, at which point I found out about this whole "git" thing and uploaded
 it to my GitHub account. Unfortunately, in the 10 years since, I've forgotten the password to that account.
@@ -8,11 +8,11 @@ I've fixed some terrible CSS and made it load this README by default
 
 It's hosted at <https://testingground.byhe.me>
 
-You can see the original version circa 2014 [here](https://github.com/thediex09/TestingGround)
+You can see the original version circa 2014 [here](http://thediex09.github.io/TestingGround/)
 
 Below is the old README, written by me, George, age 11
 
-The "Hidden stuff" was the silly zoom-in animation on the "logo" in the navbar. At the time CSS animations were unstable and I had written only the webkit vendor-prefixed properties. This fork has been updated so that firefox users can see this space-age technology
+The "hidden stuff" was the silly zoom-in animation on the "logo" in the header. At the time CSS animations were unstable and I had written only the webkit vendor-prefixed properties. This fork has been updated so that firefox users can see this space-age technology
 
 ---
 

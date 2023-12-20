@@ -16,5 +16,39 @@ export const loadReadme = async () => {
   const response = await fetch("/README.md");
   const body = await response.text();
 
-  return micromark(body);
+  return `
+  <style>
+    #divecho {
+      padding: 2em;
+      box-sizing: border-box;
+      font-family: ui-system, sans-serif;
+      overflow: auto;
+    }
+
+    p {
+      color: #444;
+      font-size: 1.25rem;
+      line-height: 1.3em;
+      font-weight: 300;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #0003;
+      margin: 3em 0;
+    }
+
+    hr ~ * {
+      color: intial;
+      font-family: initial;
+      line-height: initial;
+    }
+
+    hr ~ p {
+      font: initial;
+      font-weight: initial;
+    }
+  </style>
+  ${micromark(body)}
+  `.replace(/^  /gm, "");
 };

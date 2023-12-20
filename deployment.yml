@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ghcr.io/byhemechi/testingground:latest
+          image: ghcr.io/byhemechi/testingground:2023
           ports:
             - containerPort: 80
               name: app
