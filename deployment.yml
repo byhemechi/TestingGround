@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testingground
+  labels:
+    app: testingground
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testingground
+  template:
+    metadata:
+      labels:
+        app: testingground
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/byhemechi/testingground:latest
+          ports:
+            - containerPort: 80
+              name: app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: testingground
+  labels:
+    app: testingground
+spec:
+  selector:
+    app: testingground
+  type: ClusterIP
+  clusterIP: None
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: testingground
+  labels:
+    app: testingground
+  annotations:
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+
+spec:
+  tls:
+    - secretName: byhe-me-tls
+      hosts:
+        - testingground.byhe.me
+  rules:
+    - host: testingground.byhe.me
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: testingground
+                port:
+                  number: 80
